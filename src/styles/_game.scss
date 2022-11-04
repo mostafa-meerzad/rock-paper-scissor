@@ -2,13 +2,8 @@
 
 $options-box-size: 20rem;
 $option-size: 8rem;
-// $option-size: calc($options-box-size / 3);
 $box-shadow: 6px;
 .game {
-  // border: 2px solid red;
-  // display: grid;
-  // place-content: center;
-  // height:66vh;
   min-height: 35rem;
   display: flex;
   justify-content: space-around;
@@ -16,14 +11,10 @@ $box-shadow: 6px;
   flex-direction: column;
 }
 .game-options {
-  // border: 2px solid blue;
   width: 100%;
-  // height: 50%;
-  // padding: 2rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  // z-index: 1;
   &__option {
     user-select: none;
     border-radius: 50%;
@@ -32,10 +23,6 @@ $box-shadow: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
-    // position:absolute;
-    // box-sizing: content-box;
-    // padding: 2rem;
-    // border-width: 3px !important;
     &::before {
       content: "";
       inset: 12%;
@@ -50,20 +37,15 @@ $box-shadow: 6px;
     }
 
     &--paper {
-      // border: 2px solid yellow ;
       background-color: variables.$very-light-blue;
       box-shadow: inset 0px calc($box-shadow * -1)
         variables.$very-light-blue-shadow;
-      // display: none;
     }
     &--scissors {
-      // border: 2px solid red ;
       background-color: variables.$marigold;
       box-shadow: inset 0px calc($box-shadow * -1) variables.$marigold-shadow;
-      // display: none;
     }
     &--rock {
-      // border: 2px solid green ;
       background-color: variables.$paradise-pink;
       box-shadow: inset 0px calc($box-shadow * -1)
         variables.$paradise-pink-shadow;
@@ -71,92 +53,38 @@ $box-shadow: 6px;
   }
 
   &__your-choice {
-    // outline: 3px solid red;
-    // isolation: isolate;
-    // position: absolute;
     z-index: 1;
     left: 0;
     width: $options-box-size;
     height: $options-box-size;
-    // animation: rotate 3s linear infinite;
-    // background-color: #ccc;
-
-// &::after{
-  // content:"";
-  // inset:0;
-  // outline:4px solid red;
-  // position: absolute;
-  // border-radius:50%;
-// }
     & .game-options__option {
       position: absolute;
-      // z-index: 1;
-      // height: 100;
-      // animation: rotate 3s linear infinite reverse;
-
-
-      
-      // border: 2px solid green;
       &--paper {
         top: 19%;
         left: 3%;
-        // top: 100px;
-        // top: 30px;
       }
       &--rock {
         top: 19%;
-        // left:calc(90% - $option-size);
         left: 57%;
       }
       &--scissors {
         top: 59%;
-        // left:calc(70% - $option-size);
         left: 31%;
       }
 
       &.option-active {
-        // border: 2px solid red;
-        z-index: 10;
-        // &::after{
-        //   content: "testing value";
-        //   position: absolute;
-        //   top: 100%;
-        //   font-size: large;
-        //   color: white;
-
-        // }
-      }
+        z-index: 10;      }
     }
 
     .bg-img {
       z-index: -1;
-      // outline: 2px solid green;
-      // background-color: #ccc;
-      // transform-origin: center;
-      // position: absolute;
-      // align-self: center;
-      // top: 50%;
-      // left: 50%;
-      // transform: translate(-50% -50%);
-      // margin: auto;
       width: 75%;
       height: 75%;
-      // width: 100%;
-      // height: 100%;
-      // scale: .5;
       & svg {
-        // scale: 0.6;
-        // width: 50%;
-        // height: 50%;
-
         & * {
           stroke-width: 1.6rem;
         }
       }
-      // & #bg-triangle{
-      //
-      // stroke-width: 2.5rem;
-      // }
     }
 
     display: flex;
@@ -164,12 +92,10 @@ $box-shadow: 6px;
     align-items: center;
     & > svg {
       position: absolute;
-      // border: 2px solid red;
     }
   }
 
   &__machine-choice {
-    // outline: 5px solid yellow;
     width: fit-content;
     position: absolute;
     right: 0;
@@ -179,29 +105,16 @@ $box-shadow: 6px;
 
     & > svg {
       position: absolute;
-      // display: none;
     }
-
-    // & .game-options__option {
-    // border: 2px solid red;
-    // right: 0;
-    // }
   }
 }
 
 .game-result-container {
   height: 9rem;
-  // border: 8px solid red;
-  // min-height: /fit-content;
 }
 
 .game-result {
-  // display: none;
-  // opacity: ;
-  // border: 2px solid green;
-  // max-width: fi;
   width: 17rem;
-  // margin: 2rem;
   &__message {
     text-transform: uppercase;
     font-size: 3.5rem;
@@ -217,11 +130,9 @@ $box-shadow: 6px;
 }
 
 .game-options__placeholder {
-  // border: 2px solid yellow;
   color: variables.$white;
   text-transform: uppercase;
   font-size: 1.1rem;
-  // top:57%;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -232,40 +143,20 @@ $box-shadow: 6px;
   & .win,
   .lose {
     min-width: fit-content;
-    & .message{
-      // display: none;
-      // scale: 0;
-    }
-    // position: absolute;
   }
   & .win {
-    // border: 4px solid cyan;
-
-    // position: absolute;
     left: 2.8rem;
-    // left: 0;
-    // transform: translate(50%);
-    // &__halo{
-    // border: 4px solid red;
-    // left: 100px;
-
-    // }
   }
   & .lose {
-    // border: 4px solid cyan;
     right: 1.2rem;
-    // position: absolute;
-    // right: 0;
   }
 }
 
 .halo {
   width: $option-size * 2.5;
   height: $option-size * 2.5;
-  // border: 2px solid red;
   position: absolute;
   bottom: -3.4rem;
-  // top: 50%;
   left: 50%;
   transform: translate(-50%);
   z-index: -1;
@@ -278,11 +169,7 @@ $box-shadow: 6px;
 .machineChoicePlaceHolder{
   width: calc($option-size - 1rem);
   height: calc($option-size - 1rem);
-  // outline: 4px solid red;
   position: absolute;
-  // top:50%;
-  // left:50%;
-  // transform: translate(-50% -50%);
   bottom: 3rem;
   left: 1.6rem;
   border-radius: 50%;

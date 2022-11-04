@@ -33,9 +33,7 @@ const Close = () => {
 
 const BgImg = () => {
  return  <svg
- // animate={{scale:2}}
- // transition={{duration:2}}
- 
+
  xmlns="http://www.w3.org/2000/svg"
  
  viewBox="0 0 362 364.747"

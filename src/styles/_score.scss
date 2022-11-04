@@ -8,7 +8,6 @@ $br-radius: 0.4rem;
   justify-content: space-between;
   align-items: center;
   padding: .8rem;
-  // width: fit-content;
   width: 20rem;
   margin: auto;
 
@@ -22,8 +21,6 @@ $br-radius: 0.4rem;
     border-radius: $br-radius;
     background-color: variables.$white;
     padding: .7rem 1.5rem 0;
-    // display: grid;
-    // place-content: center;
     &-title {
       color: variables.$very-light-blue;
       font-size: 0.95rem;
@@ -36,8 +33,7 @@ $br-radius: 0.4rem;
       font-size: 2.5rem;
       font-weight: bolder;
       letter-spacing: -0.4rem;
-      top: -5px;
-      
+      top: -5px;      
       margin: 0 .4rem 0 0 ;
     }
   }

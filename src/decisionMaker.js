@@ -1,14 +1,9 @@
-// import rock from "./assets/images/icon-rock.svg";
-// import paper from "./assets/images/icon-paper.svg";
-// import scissors from "./assets/images/icon-scissors.svg";
+
 
 const decisionMaker = yourChoice => {
   const options = ["rock", "paper", "scissors"];
-  // a random item form options array
   const machineChoice = options[Math.floor(Math.random() * options.length)];
 
-  // console.log(yourChoice, " yourChoice");
-  // console.log(machineChoice, " machineChoice");
   if (yourChoice === machineChoice) {
     return {message:"equal", machineChoice};
   } else if (yourChoice === "paper") {
@@ -36,10 +31,3 @@ const decisionMaker = yourChoice => {
 
 export default decisionMaker;
 
-
-
-// const {message, machineChoice} = decisionMaker(null)
-// console.log(message);
-// console.log(machineChoice);
-// 
-// console.log(Math.floor(Math.random() * 2), " a random number");

@@ -2,13 +2,15 @@ import React, { useState, createContext, useEffect } from "react";
 import Score from "./components/Score.jsx";
 import Game from "./components/Game.jsx";
 import Rules from "./components/Rules";
-// import Conclusion from "./components/Conclusion";
 import { motion } from "framer-motion";
 import decisionMaker from './decisionMaker';
+
+
+
 const RulesContext = createContext();
 const ChoiceContext = createContext();
-
 const initialScore = 12
+
 
 const App = () => {
   const [score, setScore] = useState(initialScore);
@@ -35,25 +37,12 @@ const App = () => {
     setLoseOrWin(message)
     setMachineChoice(machineChoice)
     
-    console.log(yourChoice, " your choice"); 
-    console.log(message, " the message");
-console.log(machineChoice, " machine choice");
-
 // find the choice made from the dom
 const choice = document.querySelector(`.game-options__option--${yourChoice}`)
 
 if(choice){
 choice.classList.add("option-active")
 }
-// console.log(choice, " is the option you choose");
-
-
-    // const choice = document.querySelector(".option-active")
-
-    // console.log(choice, " this is the choice you made");
-// setTimeout(() => {
-//  choice.classList.remove("option-active") 
-// }, 5000)
    }, [yourChoice])
 
 
@@ -99,7 +88,6 @@ choice.classList.add("option-active")
       </RulesContext.Provider>
       <div className="cover" />
 
-      {/* <Test/> */}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Option from "./Option.jsx";
 import rock from "../assets/images/icon-rock.svg";
 import paper from "../assets/images/icon-paper.svg";
@@ -8,16 +8,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChoiceContext } from "../App.jsx";
 
 
-const optionInitial = {};
 const optionSelected = { top: "31.5%", left: "33%" };
-// const optionSelected = {top: "32%", left:"0%"}
-const optionSelectedTransition = { duration: 1 };
-// console.log(ChoiceContext);
 const animationDelay = 1;
-
-const handleClick = () => {
-  console.log("option clicked");
-};
 
 function Game({ setOption }) {
   const {
@@ -25,26 +17,9 @@ function Game({ setOption }) {
     setYourChoice,
     reset,
     loseOrWin,
-    setLoseOrWin,
     machineChoice,
-    isReset,
-    setIsReset
+    isReset
   } = useContext(ChoiceContext);
-  // let isLoseOrWin = null
-
-  // useEffect(() => {
-  //   // loseOrWin === "you lose" ?
-  //   if(loseOrWin === "you lose"){
-  //     isLoseOrWin = false
-  //   } else {
-  //     isLoseOrWin = true
-  //   }
-  // }, [loseOrWin])
-  // const rulesCon = useContext(RulesContext)
-
-  // useEffect(() => {
-  //  console.log(yourChoice, " this is your choice from Game Component");
-  // })
   return (
     <>
       <motion.section
@@ -120,7 +95,6 @@ function Game({ setOption }) {
 
         <div className="game-options__placeholder">
           <div className="win">
-            {/* <div> */}
 
             {loseOrWin === "you win" && (
               <svg
@@ -172,7 +146,6 @@ function Game({ setOption }) {
                 </g>
               </svg>
             )}
-            {/*  </div> */}
             <motion.div
               initial={{ scale: 0 }}
               animate={loseOrWin ? { scale: 1 } : {}}
@@ -253,17 +226,13 @@ function Game({ setOption }) {
           {loseOrWin && (
             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
-              // initial={ null }
-              // animate={loseOrWin && { opacity: 1, scale: 1 }}
               animate={{ opacity: 1, scale: 1 }}
-              // transition={{delay:2}}
               transition={
                 yourChoice
                   ? { delay: animationDelay }
                   : isReset && { scale: 0.5 }
               }
               exit={{ scale: 0 }}
-              // transition={{duration:1}}
               className="game-result"
             >
               <div className="game-result__message">{loseOrWin}</div>
@@ -272,9 +241,6 @@ function Game({ setOption }) {
                 className="game-result__btn btn"
                 onClick={() => {
                   reset();
-                  // setIsReset(true)
-
-                  //  setLoseOrWin(null)
                 }}
               >
                 play again
@@ -289,12 +255,3 @@ function Game({ setOption }) {
 
 export default Game;
 
-{
-  /* <svg xmlns="http://www.w3.org/2000/svg" width="270" height="270" viewBox="0 0 270 270">
-  <g id="halo" transform="translate(-768 -143)">
-    <circle id="out" cx="135" cy="135" r="135" transform="translate(768 143)" fill="#fcfcfc"/>
-    <circle id="mid" cx="100.5" cy="100.5" r="100.5" transform="translate(803 178)" fill="#f3f3f3"/>
-    <circle id="in" cx="71" cy="71" r="71" transform="translate(833 207)" fill="#ebebeb"/>
-  </g>
-</svg> */
-}

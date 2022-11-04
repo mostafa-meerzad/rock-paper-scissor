@@ -2,123 +2,44 @@
 @use "./styles/score";
 @use "./styles/rules";
 @use "./styles/game";
-@use "./styles/conclusion";
-// @use "./styles/variables";
 * {
   box-sizing: border-box;
   position: relative;
 }
 
 body {
-  // border: 10px solid black;
-
   height: 100vh;
-
   background-image: radial-gradient(variables.$space-cadet  10%, variables.$yankees-blue 90% );
-  // background-image: linear-gradient(
-    // variables.$space-cadet 10%,
-    // variables.$yankees-blue 90%
-  // );
-  // background-repeat: no-repeat;
-  // background-size: contain;
   margin: 0;
   padding: 0;
   font-family: Roboto;
   text-align: center;
-  // text-transform: uppercase;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  
+  justify-content: center;  
   min-height: 50rem;
-  // display: grid;
-  // place-content: center;
 }
 #root{
   overflow-x: hidden;
-  // display: grid;/
-  // place-content: center;
-  // min-height: 150rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  // padding: 2rem;
-  // margin: 0;
-  // border: 9px solid green;
-  // display: none;
-  // width: 90%;
 }
-// main{
-//   height: 70vh;
-//   width: 90vw;
-//   border: 2px solid green;
-//   // display: grid;
-//   // place-content: center;
-//   // text-transform: uppercase;
-//   // overflow: hidden;
-//   // width: 100%;'
-//   // position: absolute;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-// }
 
 .btn{
-  // display: none;
 
   font-size: 1.1rem;
   font-weight: bold;
   border-radius: 0.5rem;
-  // margin: auto;
   border: none;
   text-transform: uppercase;
-  // scale: 1.1;
   letter-spacing: 1px;
 }
 .rules-btn {
-  // text-transform: uppercase;
   color: variables.$light-gray;
   padding: 0.6rem 2.4rem;
   border: 0.15rem solid currentColor;
   background-color: transparent;
-  // max-width: fit-content;
 }
 
-// #root{
-  // border: 2px solid black;
-
-// }
-// .rules-active{
-  // display: flex;
-// }
-
-// .halo{
-//   // 
-//   width: 300px ;
-//   height: 300px;
-//   // border: 2px solid red;
-//   // position: absolutes;
-//   z-index: -1;
-//   & circle{
-//     opacity: .1;
-//     // fill: gray
-//   }
-// }
-
-// .halo-circle{
-// opacity: .1;
-// fill: lightblue;
-// transform: scale(.5);
-// scale: 10;
-// }
-
-// .test{
-//   border: 2px solid red;
-//   // display: grid;
-//   // place-content: center;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
