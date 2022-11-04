@@ -1,0 +1,44 @@
+@use "./variables";
+
+$br-radius: 0.4rem;
+.score {
+  border: 0.2rem solid variables.$grayish-blue;
+  border-radius: $br-radius;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .8rem;
+  // width: fit-content;
+  width: 20rem;
+  margin: auto;
+
+  &__logo {
+    width: fit-content;
+    height: 3.3rem;
+    margin-left: 1rem;
+  }
+
+  &__container {
+    border-radius: $br-radius;
+    background-color: variables.$white;
+    padding: .7rem 1.5rem 0;
+    // display: grid;
+    // place-content: center;
+    &-title {
+      color: variables.$very-light-blue;
+      font-size: 0.95rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    &-value {
+      color: variables.$grayish-blue;
+      font-size: 2.5rem;
+      font-weight: bolder;
+      letter-spacing: -0.4rem;
+      top: -5px;
+      
+      margin: 0 .4rem 0 0 ;
+    }
+  }
+}
