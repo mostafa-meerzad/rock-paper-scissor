@@ -1,34 +1,45 @@
-const decisionMaker = (yourChoice) => {
-  const options = ["rock", "paper", "scissor"];
-// a random item form options array
+// import rock from "./assets/images/icon-rock.svg";
+// import paper from "./assets/images/icon-paper.svg";
+// import scissors from "./assets/images/icon-scissors.svg";
+
+const decisionMaker = yourChoice => {
+  const options = ["rock", "paper", "scissors"];
+  // a random item form options array
   const machineChoice = options[Math.floor(Math.random() * options.length)];
 
-  console.log(yourChoice, " yourChoice");
-  console.log(machineChoice, " machineChoice");
+  // console.log(yourChoice, " yourChoice");
+  // console.log(machineChoice, " machineChoice");
   if (yourChoice === machineChoice) {
-    return "equal";
+    return {message:"equal", machineChoice};
   } else if (yourChoice === "paper") {
     if (machineChoice === "rock") {
-      return "you win";
-    } else if (machineChoice === "scissor") {
-      return "you lose";
+      return {message:"you win", machineChoice};
+    } else if (machineChoice === "scissors") {
+      return {message:"you lose", machineChoice};
     }
-  } else if (yourChoice === "scissor") {
+  } else if (yourChoice === "scissors") {
     if (machineChoice === "paper") {
-      return "you win";
+      return {message:"you win", machineChoice};
     } else if (machineChoice === "rock") {
-      return "you lose";
+      return {message:"you lose", machineChoice};
     }
   } else if (yourChoice === "rock") {
-    if (machineChoice === "scissor") {
-      return "you win";
+    if (machineChoice === "scissors") {
+      return {message:"you win", machineChoice};
     } else if (machineChoice === "paper") {
-      return "you lose";
+      return {message:"you lose", machineChoice};
     }
+  } else {
+    return {message:"", machineChoice: ''}
   }
 };
 
+export default decisionMaker;
 
- export default decisionMaker
 
 
+// const {message, machineChoice} = decisionMaker(null)
+// console.log(message);
+// console.log(machineChoice);
+// 
+// console.log(Math.floor(Math.random() * 2), " a random number");

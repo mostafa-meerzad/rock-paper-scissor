@@ -1,34 +1,110 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useState, createContext, useEffect } from "react";
+import Score from "./components/Score.jsx";
+import Game from "./components/Game.jsx";
+import Rules from "./components/Rules";
+// import Conclusion from "./components/Conclusion";
+import { motion } from "framer-motion";
+import decisionMaker from './decisionMaker';
+const RulesContext = createContext();
+const ChoiceContext = createContext();
 
-function App() {
-  const [count, setCount] = useState(0)
+const initialScore = 12
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+const App = () => {
+  const [score, setScore] = useState(initialScore);
+  const [showRules, setShowRules] = useState(false);
+  const [yourChoice, setYourChoice] = useState(null);
+  const [machineChoice, setMachineChoice] = useState(null);
+  const [isSelected, setIsSelected] = useState(false)
+  const [loseOrWin, setLoseOrWin] = useState(null)
+  const [isReset, setIsReset] = useState(false)
+
+  const reset = () => {
+    setYourChoice(null)
+    setMachineChoice(null)
+    setIsSelected(false)
+    setIsReset(true)
+    
+    document.querySelectorAll(".game-options__option").forEach(item=>{
+      item.classList.remove("option-active")
+    })
+  }
+
+  useEffect(() => {
+    const {message, machineChoice}  = decisionMaker(yourChoice)
+    setLoseOrWin(message)
+    setMachineChoice(machineChoice)
+    
+    console.log(yourChoice, " your choice"); 
+    console.log(message, " the message");
+console.log(machineChoice, " machine choice");
+
+// find the choice made from the dom
+const choice = document.querySelector(`.game-options__option--${yourChoice}`)
+
+if(choice){
+choice.classList.add("option-active")
 }
+// console.log(choice, " is the option you choose");
 
-export default App
+
+    // const choice = document.querySelector(".option-active")
+
+    // console.log(choice, " this is the choice you made");
+// setTimeout(() => {
+//  choice.classList.remove("option-active") 
+// }, 5000)
+   }, [yourChoice])
+
+
+
+   useEffect(() => {
+    // give setting score a delay so it doesn't change score right away 
+    setTimeout(() => {
+      if(loseOrWin === "you lose"){
+        setScore(score - 1)
+      } else if (loseOrWin === "you win"){
+        setScore(score + 1)
+      } 
+    }, 2000)
+   }, [loseOrWin])
+  return (
+    <>
+      <motion.header
+      initial={{scale:0}}
+      animate={{scale:1}}>
+        <Score scoreValue={score} initialScore={initialScore}/>
+      </motion.header>
+      <main className={"game"}>
+        <ChoiceContext.Provider value={{ yourChoice, setYourChoice, isSelected, setIsSelected, reset, loseOrWin, setLoseOrWin, machineChoice, isReset }}>
+          <Game />
+        </ChoiceContext.Provider>
+      </main>
+      <motion.footer
+        initial={{scale:.5}}
+      animate={{scale:1}}
+      >
+        <button
+          className={"rules-btn btn"}
+          onClick={() => {
+            setShowRules(true);
+          }}
+        >
+          rules
+        </button>
+      </motion.footer>
+
+      <RulesContext.Provider value={{ showRules, setShowRules }}>
+        <Rules />
+      </RulesContext.Provider>
+      <div className="cover" />
+
+      {/* <Test/> */}
+    </>
+  );
+};
+
+export default App;
+export { RulesContext, ChoiceContext };
+
+
