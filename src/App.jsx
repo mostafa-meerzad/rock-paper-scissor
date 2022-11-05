@@ -86,7 +86,7 @@ choice.classList.add("option-active")
       <RulesContext.Provider value={{ showRules, setShowRules }}>
         <Rules />
       </RulesContext.Provider>
-      <div className="cover" />
+      <motion.div initial={{opacity:0, scale:0}} animate={showRules ? {opacity:.5, scale:1}: {}} className="cover" />
 
     </>
   );

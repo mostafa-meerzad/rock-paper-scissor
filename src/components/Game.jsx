@@ -7,8 +7,9 @@ import { BgImg } from "../assets/images.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChoiceContext } from "../App.jsx";
 
-
-const optionSelected = { top: "31.5%", left: "33%" };
+// change the animation object based on mediaQuery if it is matching 
+// the desktop-view 
+const optionSelected = window.matchMedia("min-width:1420") ? { top: "31.5%", left: "20%" } : { top: "31.5%", left: "33%" };
 const animationDelay = 1;
 
 function Game({ setOption }) {
