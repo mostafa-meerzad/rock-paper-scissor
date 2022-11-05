@@ -9,7 +9,7 @@ import { ChoiceContext } from "../App.jsx";
 
 // change the animation object based on mediaQuery if it is matching 
 // the desktop-view 
-const optionSelected = window.matchMedia("min-width:1420") ? { top: "31.5%", left: "20%" } : { top: "31.5%", left: "33%" };
+const optionSelected = window.matchMedia("min-width:1420").matches ? { top: "31.5%", left: "20%" } : { top: "31.5%", left: "33%" };
 const animationDelay = 1;
 
 function Game({ setOption }) {
