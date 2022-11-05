@@ -35,6 +35,30 @@
   margin: 0 0.4rem 0 0;
 }
 
+@media all and (min-width: 1420px) {
+  .score {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.2rem 1.5rem;
+  }
+  .score__logo {
+    width: auto;
+    height: 7.1rem;
+    left: -0.3rem;
+  }
+  .score__container {
+    border-radius: 0.7rem;
+    padding: 0.9rem 3rem 0rem;
+  }
+  .score__container-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+  }
+  .score__container-value {
+    font-size: 5rem;
+  }
+}
 .rules {
   position: fixed;
   top: 0;
@@ -51,6 +75,7 @@
 .rules__title {
   font-size: xx-large;
   font-weight: bolder;
+  text-transform: uppercase;
   color: #1E3656;
 }
 .rules__exit-btn {
@@ -65,6 +90,37 @@
   height: 100%;
 }
 
+@media all and (min-width: 1420px) {
+  .rules {
+    position: absolute;
+    top: auto;
+    left: auto;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 0.6rem !important;
+  }
+  .rules__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1.5rem;
+  }
+  .rules__exit-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1.5rem;
+  }
+  .rules__exit-btn svg {
+    width: 95%;
+    height: 95%;
+  }
+  .rules__img {
+    width: 75%;
+    height: auto;
+    bottom: -2rem;
+  }
+}
 .game {
   min-height: 35rem;
   display: flex;
@@ -236,6 +292,47 @@
   opacity: 0.4;
 }
 
+@media all and (min-width: 1420px) {
+  .game-options {
+    position: absolute;
+  }
+  .game-options__option {
+    width: 15.2rem;
+    height: 15.2rem;
+  }
+  .game-options__your-choice {
+    width: 40rem;
+    height: 40rem;
+  }
+  .game-options__your-choice::after {
+    content: "";
+    inset: 0;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+  }
+  .game-options__your-choice .bg-img svg * {
+    stroke-width: 1rem;
+  }
+  .game-options__placeholder {
+    width: 105%;
+    font-size: 1.8rem;
+    bottom: 80%;
+  }
+  .game-options__placeholder .win .halo, .game-options__placeholder .lose .halo {
+    top: -10rem;
+  }
+  .game-options__placeholder .halo {
+    width: 48rem;
+    height: 48rem;
+  }
+  .machineChoicePlaceHolder {
+    width: 11.2rem;
+    height: 11.2rem;
+    bottom: -17.7rem;
+    left: 2.5rem;
+  }
+}
 * {
   box-sizing: border-box;
   position: relative;
@@ -276,4 +373,32 @@ body {
   padding: 0.6rem 2.4rem;
   border: 0.15rem solid currentColor;
   background-color: transparent;
+}
+
+.cover {
+  inset: 0;
+  position: absolute;
+  background-color: black;
+  opacity: 0.4;
+}
+
+@media all and (min-width: 1420px) {
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+  header {
+    width: 100%;
+  }
+  main {
+    width: 60%;
+    justify-self: center;
+  }
+  footer {
+    text-align: right;
+    width: 90%;
+  }
+  footer .rules-btn {
+    font-size: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */

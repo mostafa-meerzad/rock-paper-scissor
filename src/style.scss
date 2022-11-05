@@ -42,4 +42,36 @@ body {
   border: 0.15rem solid currentColor;
   background-color: transparent;
 }
+.cover{
 
+  inset: 0;
+  position: absolute;
+  background-color: black;
+  opacity: .4;
+
+}
+@media all and (min-width:variables.$desktop-view) {
+
+#root{
+  height: 100%;
+  width: 100%;
+ 
+}
+
+header{
+  width: 100%;
+}
+main{
+  width: 60%;
+  justify-self: center;
+}
+
+  footer{
+    text-align: right;
+    width: 90%;
+    .rules-btn{
+      font-size: 1rem;
+    }
+  }
+  
+}

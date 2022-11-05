@@ -38,3 +38,31 @@ $br-radius: 0.4rem;
     }
   }
 }
+
+
+@media all and (min-width:variables.$desktop-view) {
+
+.score{
+  width:50%;
+border-radius: 1rem;
+padding: 1.2rem 1.5rem;
+  &__logo{
+    width: auto;
+    height: 7.1rem;
+    left: -.3rem;
+  }
+  &__container{
+border-radius: .7rem;
+    padding: .9rem 3rem 0rem;
+    &-title{
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+    }
+    &-value{
+      font-size: 5rem;
+    }
+  }
+}
+
+}
