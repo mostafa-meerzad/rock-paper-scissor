@@ -2,6 +2,7 @@
 @use "./styles/score";
 @use "./styles/rules";
 @use "./styles/game";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 * {
   box-sizing: border-box;
   position: relative;
@@ -12,7 +13,7 @@ body {
   background-image: radial-gradient(variables.$space-cadet  10%, variables.$yankees-blue 90% );
   margin: 0;
   padding: 0;
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;;
   text-align: center;
   display: flex;
   flex-direction: column;

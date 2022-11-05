@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
 .score {
   border: 0.2rem solid #5B6E88;
   border-radius: 0.4rem;
@@ -188,12 +189,12 @@
   left: 3%;
 }
 .game-options__your-choice .game-options__option--rock {
-  top: 19%;
-  left: 57%;
-}
-.game-options__your-choice .game-options__option--scissors {
   top: 59%;
   left: 31%;
+}
+.game-options__your-choice .game-options__option--scissors {
+  top: 19%;
+  left: 57%;
 }
 .game-options__your-choice .game-options__option.option-active {
   z-index: 10;
@@ -343,7 +344,7 @@ body {
   background-image: radial-gradient(#1E3656 10%, #15183B 90%);
   margin: 0;
   padding: 0;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   text-align: center;
   display: flex;
   flex-direction: column;
