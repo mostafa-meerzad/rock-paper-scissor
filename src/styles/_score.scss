@@ -1,6 +1,7 @@
 @use "./variables";
 
 $br-radius: 0.4rem;
+
 .score {
   border: 0.2rem solid variables.$grayish-blue;
   border-radius: $br-radius;
@@ -8,13 +9,15 @@ $br-radius: 0.4rem;
   justify-content: space-between;
   align-items: center;
   padding: .8rem;
-  width: 20rem;
+  width: var(--width);
+  max-width: var(--max-width);
   margin: auto;
 
   &__logo {
     width: fit-content;
     height: 3.3rem;
     margin-left: 1rem;
+
   }
 
   &__container {
@@ -27,8 +30,8 @@ $br-radius: 0.4rem;
       font-weight: bold;
       margin: 0;
     }
-
-    &-value {
+  }
+  &__container-value {
       color: variables.$grayish-blue;
       font-size: 2.5rem;
       font-weight: bolder;
@@ -36,33 +39,29 @@ $br-radius: 0.4rem;
       top: -5px;      
       margin: 0 .4rem 0 0 ;
     }
-  }
-}
-
-
+    
+    
+    
 @media all and (min-width:variables.$desktop-view) {
 
-.score{
-  width:50%;
 border-radius: 1rem;
 padding: 1.2rem 1.5rem;
   &__logo{
-    width: auto;
-    height: 7.1rem;
-    left: -.3rem;
-  }
-  &__container{
-border-radius: .7rem;
-    padding: .9rem 3rem 0rem;
-    &-title{
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: 1.5px;
+      width: auto;
+      height: 6rem;
+      left: -.3rem;
     }
-    &-value{
-      font-size: 5rem;
+    &__container{
+    border-radius: .7rem;
+        padding: .9rem 2.5rem 0rem;
+        &-title{
+            font-size: 1.3rem;
+    
+          }
+          &-value{
+              font-size: 3rem;
+             
+            }
+          }  
+      }
     }
-  }
-}
-
-}

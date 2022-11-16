@@ -1,33 +1,46 @@
 @use "./variables";
 
-$options-box-size: 20rem;
+$options-box-size: 50%;
 $option-size: 8rem;
 $box-shadow: 6px;
+
 .game {
-  min-height: 35rem;
+  min-height: 30rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-}
-.game-options {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  // outline: 3px solid red;
+  width: var(--width);
+  margin: 0  auto 2rem;
+
+  &__options {
+
+
+    width: var(--width);
+    height: var(--width);
+    max-width: var(--max-width);
+    max-height: var(--max-width);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   &__option {
+
     user-select: none;
     border-radius: 50%;
-    width: $option-size;
-    height: $option-size;
+    width: var(--option-size);
+    height: var(--option-size);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
     &::before {
       content: "";
       inset: 12%;
       position: absolute;
-      background-color: #fff;
+      background-color: variables.$white;
       border-radius: 50%;
       box-shadow: inset 0px $box-shadow variables.$light-gray;
     }
@@ -50,190 +63,206 @@ $box-shadow: 6px;
       box-shadow: inset 0px calc($box-shadow * -1)
         variables.$paradise-pink-shadow;
     }
+
+    &-halo {
+   
+      position: absolute;
+      width: 270%;
+      height: 270%;
+      z-index: -1;
+      @media all and (min-width:variables.$desktop-view) {
+        width: 370%;
+      height: 370%;
+      }
+    }
   }
 
-  &__your-choice {
-    z-index: 1;
-    left: 0;
-    width: $options-box-size;
-    height: $options-box-size;
-    & .game-options__option {
-      position: absolute;
+
+}
+
+.game__your-choice {
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+  
+  .game__option {
+   
+    &--paper {
+      top: 10%;
+      left: -1%;
+
+    }
+    &--scissors {
+      top: 10%;
+      left: 53%;
+    }
+    &--rock {
+      top: 56%;
+      left: 26%;
+    }
+    &.option-active {
+      z-index: 10;
+    }
+ 
+    @media all and (min-width: 350px) {
+      &--paper {
+        top: 17%;
+        left: 3%;
+      }
+      &--scissors {
+        top: 17%;
+        left: 60%;
+      }
+      &--rock {
+        top: 63%;
+        left: 31%;
+      }
+    }
+    @media all and (min-width: 450px) and (max-width: 500px) {
       &--paper {
         top: 19%;
         left: 3%;
       }
+      &--scissors {
+        top: 19%;
+        left: 65%;
+      }
       &--rock {
-        top: 59%;
-        left: 31%;  
+        top: 69%;
+        left: 35%;
+      }
+    }
+    @media all and (min-width: variables.$desktop-view) {
+      &--paper {
+        top: 12%;
+        left: 1%;
       }
       &--scissors {
-      
-        top: 19%;
-        left: 57%;
+        top: 12%;
+        left: 56%;
       }
-
-      &.option-active {
-        z-index: 10;
-      }
-    }
-
-    .bg-img {
-      z-index: -1;
-      width: 75%;
-      height: 75%;
-      & svg {
-        & * {
-          stroke-width: 1.6rem;
-        }
+      &--rock {
+        top: 58%;
+        left: 27%;
       }
     }
+  }
+  
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & > svg {
-      position: absolute;
+  .game__bg-img {
+    z-index: -1;
+    width: 75%;
+    height: 75%;
+    & svg {
+      & * {
+        stroke-width: 1.6rem;
+      }
     }
   }
 
-  &__machine-choice {
-    width: fit-content;
+  & > svg {
     position: absolute;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  }
 
-    & > svg {
-      position: absolute;
-    }
+ 
+}
+
+.game__machine-choice {
+ 
+  width: 100%;
+  height: 100%;
+ 
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  & > svg {
+    position: absolute;
+  }
+
+  @media all and(min-width:variables.$desktop-view) {
+    left: 30%;
   }
 }
 
-.game-result-container {
+
+
+.result {
   height: 9rem;
-}
+  display: flex;
 
-.game-result {
-  width: 17rem;
-  &__message {
-    text-transform: uppercase;
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: variables.$white;
+  @media all and (min-width:variables.$desktop-view) {
+   
+    position: absolute;
   }
-  &__btn {
-    padding: 1.2rem 0;
-    width: 100%;
-    background-color: variables.$white;
-    color: variables.$space-cadet;
-  }
-}
 
-.game-options__placeholder {
-  color: variables.$white;
+&__message {
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: variables.$white;
+  margin-bottom: 1rem;
+}
+&__play-again {
+  padding: 1.2rem 0;
+  width: 100%;
+  background-color: variables.$white;
+  color: variables.$space-cadet;
+  &:hover{
+    color: variables.$paradise-pink;
+  }
+}
+}
+
+
+.game__choice-type{
+  position: absolute;
+  text-transform: uppercase;
+  color: variables.$white;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  width: 120%;
-  position: absolute;
-  bottom: 3.5rem;
+  bottom: 5%;
+  & :first-child{
+  left: 5%;  
+  }
+  & :last-child{
+    right: -5%;
+  }
 
-  & .win,
-  .lose {
-    min-width: fit-content;
+
+  @media all and (min-width:500px) {
+  bottom: 17%;
+
+    & :first-child{
+      left: 8%;  
+      }
+      & :last-child{
+        right: 2%;
+      }
   }
-  & .win {
-    left: 2.8rem;
+
+  @media all and (min-width:variables.$desktop-view) {
+    bottom: 10%;
+    & :first-child{
+      left: -19%;  
+      }
+      & :last-child{
+        right: -25%;
+      }
   }
-  & .lose {
-    right: 1.2rem;
-  }
+
 }
-
-.halo {
-  width: $option-size * 2.5;
-  height: $option-size * 2.5;
-  position: absolute;
-  bottom: -3.4rem;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: -1;
-
-  &__circle {
-    opacity: 0.07;
-  }
-}
-
-.machineChoicePlaceHolder {
-  width: calc($option-size - 1rem);
-  height: calc($option-size - 1rem);
-  position: absolute;
-  bottom: 3rem;
-  left: 1.6rem;
-  border-radius: 50%;
+.game__machine-choice-placeholder{
+  width: calc(var(--option-size) - 1rem);
+  height: calc(var(--option-size) - 1rem);
   background-color: variables.$yankees-blue;
-  z-index: -1;
-  opacity: 0.4;
-}
-
-@media all and (min-width: variables.$desktop-view) {
-  .game-options {
-    position: absolute;
-
-    &__option {
-      width: $option-size * 1.9;
-      height: $option-size * 1.9;
-    }
-
-    &__your-choice {
-      &::after {
-        content: "";
-        inset: 0;
-        border-radius: 50%;
-        position: absolute;
-        z-index: -1;
-      }
-
-      width: calc($options-box-size * 2);
-      height: calc($options-box-size * 2);
-      .bg-img {
-        & svg {
-          & * {
-            stroke-width: 1rem;
-          }
-        }
-      }
-    }
-  }
-
-  .game-options__placeholder {
-    width: 105%;
-    font-size: 1.8rem;
-    bottom: 80%;
-    & .win,
-    & .lose {
-      & .halo {
-        top: -10rem;
-      }
-    
-    }
-
-    .halo {
-      width: $option-size * 6;
-      height: $option-size * 6;
-    }
-  }
-
-  .machineChoicePlaceHolder {
-    width: calc($option-size * 1.4) ;
-    height: calc($option-size * 1.4);
-    bottom:-17.7rem;
-    left: 2.5rem;
-    }
-    
-
+  border-radius: 50%;
+  position: absolute;
 }
