@@ -163,6 +163,9 @@ $box-shadow: 6px;
     & svg {
       & * {
         stroke-width: 1.6rem;
+        @media all and (min-width:variables.$desktop-view) {
+          stroke-width: .8rem;;
+        }
       }
     }
   }
