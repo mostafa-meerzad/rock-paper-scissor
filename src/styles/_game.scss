@@ -1,22 +1,16 @@
 @use "./variables";
 
-$options-box-size: 50%;
-$option-size: 8rem;
 $box-shadow: 6px;
 
 .game {
-  min-height: 30rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  // outline: 3px solid red;
   width: var(--width);
-  margin: 0  auto 2rem;
+  margin: 0 auto 2rem;
 
   &__options {
-
-
     width: var(--width);
     height: var(--width);
     max-width: var(--max-width);
@@ -164,7 +158,7 @@ $box-shadow: 6px;
       & * {
         stroke-width: 1.6rem;
         @media all and (min-width:variables.$desktop-view) {
-          stroke-width: .8rem;;
+          stroke-width: .8rem;
         }
       }
     }

@@ -37,7 +37,9 @@ $br-radius: 0.4rem;
       font-weight: bolder;
       letter-spacing: -0.4rem;
       top: -5px;      
-      margin: 0 .4rem 0 0 ;
+      margin: 0 auto;
+      display: grid;
+      place-content: center;
     }
     
     
@@ -56,11 +58,9 @@ padding: 1.2rem 1.5rem;
         padding: .9rem 2.5rem 0rem;
         &-title{
             font-size: 1.3rem;
-    
           }
           &-value{
-              font-size: 3rem;
-             
+              font-size: 3rem;        
             }
           }  
       }

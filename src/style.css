@@ -33,7 +33,9 @@
   font-weight: bolder;
   letter-spacing: -0.4rem;
   top: -5px;
-  margin: 0 0.4rem 0 0;
+  margin: 0 auto;
+  display: grid;
+  place-content: center;
 }
 @media all and (min-width: 1024px) {
   .score {
@@ -120,7 +122,6 @@
   }
 }
 .game {
-  min-height: 30rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -363,41 +364,37 @@
 
 :root {
   --width: 80vw;
-  --max-width:25rem;
-  --option-size:7.5rem;
-}
-@media all and (min-width: 500px) {
-  :root {
-    --max-width:30rem;
-    --option-size:11rem;
-  }
+  --max-width: 25rem;
+  --option-size: 7.5rem;
 }
 @media all and (min-width: 400px) and (max-width: 500px) {
   :root {
-    --option-size:8rem;
+    --option-size: 7rem;
+    --width:70vw ;
+  }
+}
+@media all and (min-width: 500px) {
+  :root {
+    --max-width: 25rem;
+    --option-size: 9rem;
   }
 }
 @media all and (min-width: 1024px) {
   :root {
-    --option-size:14rem;
-    --max-width:35rem;
+    --option-size: 14rem;
+    --max-width: 35rem;
   }
 }
 
 body {
   background-image: radial-gradient(#1E3656 10%, #15183B 90%);
   margin: 0;
-  padding: 0;
   font-family: "Roboto", sans-serif;
-}
-
-#root {
-  overflow-x: hidden;
+  text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  min-height: 100vh;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 .btn {
