@@ -5,7 +5,7 @@ import Rules from "./components/Rules";
 import { motion } from "framer-motion";
 import decisionMaker from "./decisionMaker";
 
-const initialScore = 12;
+const initialScore = 0;
 
 const RulesContext = createContext();
 const ChoiceContext = createContext();
@@ -40,15 +40,16 @@ const App = () => {
     const choice = document.querySelector(`.game__option--${yourChoice}`);
 
     if (choice) {
-      // remove active state
+      // add active state
       choice.classList.add("option-active");
     }
   }, [yourChoice]);
 
   useEffect(() => {
-    // give setting score a delay so it doesn't change score right away
+    // give setting score a delay so it doesn't change score right-away
     setTimeout(() => {
       if (loseOrWin === "you lose") {
+        if (score === 0) return
         setScore(score - 1);
       } else if (loseOrWin === "you win") {
         setScore(score + 1);
@@ -58,7 +59,7 @@ const App = () => {
   return (
     <>
       <motion.header initial={{ scale: 0 }} animate={{ scale: 1 }}>
-        <Score scoreValue={score} initialScore={initialScore} />
+        <Score scoreValue={score} />
       </motion.header>
 
       <main className={"game"}>
